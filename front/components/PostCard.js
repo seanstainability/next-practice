@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Card, Avatar, Popover, Button } from "antd";
+import { Card, Avatar, Popover, Button, List, Comment } from "antd";
 import gravatar from "gravatar";
 import {
   RetweetOutlined,
@@ -10,8 +10,8 @@ import {
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import CommentForm from "./CommentForm";
-import Comments from "./Comments";
 import PostImages from "./PostImages";
+import PostCardContent from "./PostCardContent";
 
 const PostCard = ({ post }) => {
   const [liked, setLiked] = useState(false);
@@ -68,13 +68,34 @@ const PostCard = ({ post }) => {
             />
           }
           title={post.User.nickname}
-          description={post.content}
+          description={<PostCardContent postData={post.content} />}
         />
       </Card>
       {commentFormOpened && (
         <>
-          <CommentForm />
-          <Comments />
+          <CommentForm post={post} />
+          <List
+            header={`${post.Comments.length}개의 댓글`}
+            itemLayout="horizontal"
+            style={{ margin: "0 10px" }}
+            dataSource={post.Comments}
+            renderItem={(item) => (
+              <li>
+                <Comment
+                  author={item.User.nickname}
+                  content={item.content}
+                  avatar={
+                    <Avatar
+                      src={gravatar.url(item.User.email, {
+                        s: "100",
+                        d: "retro",
+                      })}
+                    />
+                  }
+                />
+              </li>
+            )}
+          />
         </>
       )}
     </>

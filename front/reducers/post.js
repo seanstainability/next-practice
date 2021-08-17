@@ -14,13 +14,13 @@ const dummyPost = {
   content: "첫 게시글 #해시태그 #테스트",
   Images: [
     {
-      src: "https://picsum.photos/200",
+      src: "https://picsum.photos/400",
     },
     {
       src: "https://picsum.photos/200",
     },
     {
-      src: "https://picsum.photos/200",
+      src: "https://picsum.photos/300",
     },
   ],
   Comments: [

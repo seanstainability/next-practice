@@ -1,6 +1,17 @@
 import React, { useCallback } from "react";
 import { List, Avatar, Button } from "antd";
 import gravatar from "gravatar";
+import styled from "styled-components";
+
+const ListWrapper = styled(List)`
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 const FollowList = ({ header, list }) => {
   const onLoadMore = useCallback(() => {}, []);
@@ -18,9 +29,8 @@ const FollowList = ({ header, list }) => {
   );
   return (
     <>
-      <List
+      <ListWrapper
         header={<div>{header}</div>}
-        style={{ width: "50%", boxSizing: "border-box", padding: 10 }}
         loadMore={loadMore}
         dataSource={list}
         renderItem={(item) => (

@@ -77,9 +77,7 @@ const SignUp = () => {
           </Form.Item>
 
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
-              회원가입
-            </Button>
+            <Button htmlType="submit">회원가입</Button>
           </Form.Item>
         </Form>
       </AppLayout>

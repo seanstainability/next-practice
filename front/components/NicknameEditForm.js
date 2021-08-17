@@ -21,7 +21,11 @@ const NicknameEditForm = () => {
         style={{ margin: 10 }}
         onFinish={onFinish}
       >
-        <Form.Item label="닉네임" name="user_nickname">
+        <Form.Item
+          label="닉네임"
+          name="user_nickname"
+          style={{ marginBottom: 5 }}
+        >
           <Input />
         </Form.Item>
         <Form.Item
@@ -30,9 +34,7 @@ const NicknameEditForm = () => {
             span: 18,
           }}
         >
-          <Button type="primary" htmlType="submit">
-            변경
-          </Button>
+          <Button htmlType="submit">변경</Button>
         </Form.Item>
       </Form>
     </>
