@@ -1,0 +1,27 @@
+{
+  "name": "next-front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "seanstainability",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.6.3",
+    "antd": "^4.16.12",
+    "global": "^4.4.0",
+    "gravatar": "^1.8.2",
+    "next": "^11.1.0",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
