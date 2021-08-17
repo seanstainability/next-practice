@@ -2,6 +2,8 @@ import React, { useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
 import useInput from "../hooks/useInput";
+import { useDispatch } from "react-redux";
+import { logIn } from "../reducers/user";
 
 const formItemLayout = {
   labelCol: {
@@ -26,12 +28,14 @@ const tailFormItemLayout = {
   },
 };
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = (/*{ setIsLoggedIn }*/) => {
+  const dispatch = useDispatch();
   const [email, onChangeEmail] = useInput("");
   const [password, onChangePassword] = useInput("");
   const onFinish = useCallback((values) => {
     console.log(values);
-    setIsLoggedIn(true);
+    // setIsLoggedIn(true);
+    dispatch(logIn(values));
   }, []);
 
   return (
@@ -44,11 +48,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
           <Input.Password value={password} onChange={onChangePassword} />
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ marginRight: 5, marginTop: 5 }}
-          >
+          <Button htmlType="submit" style={{ marginRight: 5, marginTop: 5 }}>
             로그인
           </Button>
           <Button style={{ marginTop: 5 }}>

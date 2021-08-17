@@ -3,9 +3,11 @@ import Link from "next/link";
 import { Menu, Input, Row, Col } from "antd";
 import UserProfile from "./UserProfile";
 import LoginForm from "./LoginForm";
+import { useSelector } from "react-redux";
 
 const AppLayout = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { me } = useSelector((state) => state.user);
   const onSearch = useCallback((search_word) => {
     console.log(search_word);
   }, []);
@@ -36,10 +38,10 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
+          {me ? (
+            <UserProfile /*setIsLoggedIn={setIsLoggedIn}*/ />
           ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
+            <LoginForm /*setIsLoggedIn={setIsLoggedIn}*/ />
           )}
         </Col>
         <Col xs={24} md={12}>

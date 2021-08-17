@@ -1,9 +1,13 @@
 import React, { useCallback } from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { changeNickname } from "../reducers/user";
 
 const NicknameEditForm = () => {
+  const dispatch = useDispatch();
   const onFinish = useCallback((v) => {
     console.log(v);
+    dispatch(changeNickname(v));
   }, []);
   return (
     <>

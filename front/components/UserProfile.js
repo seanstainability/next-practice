@@ -1,10 +1,14 @@
 import React, { useCallback } from "react";
 import { Card, Avatar, Button } from "antd";
 import gravatar from "gravatar";
+import { useDispatch } from "react-redux";
+import { logOut } from "../reducers/user";
 
-const UserProfile = ({ setIsLoggedIn }) => {
+const UserProfile = (/*{ setIsLoggedIn }*/) => {
+  const dispatch = useDispatch();
   const onLogOut = useCallback(() => {
-    setIsLoggedIn(false);
+    // setIsLoggedIn(false);
+    dispatch(logOut());
   }, []);
 
   const avatar = gravatar.url("seanstainability@gmail.com", {
